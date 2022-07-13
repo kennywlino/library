@@ -31,23 +31,30 @@ function removeBookFromLibrary() {
 function displayLibrary() {
     let divBooks = document.getElementById('books');
     for (i = 0; i < myLibrary.length; i++) {
-        bookElem = createBookHTML(myLibrary[i]);
-        divBooks.appendChild(bookElem);
+        bookDiv = createBookDiv(myLibrary[i]);
+        divBooks.appendChild(bookDiv);
     }
 }
 
-function createBookHTML(book) {
-    let bookElem = document.createElement('div');
-    bookElem.classList.add("book");
-    let title = document.createElement('h2');
-    title.classList.add("title");
-    title.textContent = book.title;
-    let author = document.createElement('p');
-    author.textContent = book.authorFirst + ' ' + book.authorLast;
-    /* let numPages = document.createElement('p')
-    let read = document.createElement('p'); */
-    bookElem.append(title, author);
-    return bookElem;
+function createBookDiv(book) {
+    let bookDiv = createDivElement('div', "book");
+    let titleElem = createDivElement('h2', "title", book.title);
+    let authorElem = createDivElement('p', "author", (book.authorFirst + ' ' + book.authorLast));
+    let numPagesElem = createDivElement('p', "numPages", String(book.numPages));
+    let readElem = createDivElement('p', "read", String(book.read));
+    bookDiv.append(titleElem, authorElem, numPagesElem, readElem);
+    return bookDiv;
+  }
+
+// creates an individual div element from a Book object property
+// Used in createBookDiv to compose a complete Book div from a single Book object.
+function createDivElement(elementType, className, text) {
+    let elem = document.createElement(elementType);
+    elem.classList.add(className);
+    if (text) {
+        elem.textContent = text;
+    }
+    return elem;
 }
 
 function toggleReadStatus() {
