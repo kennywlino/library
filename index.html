@@ -11,5 +11,42 @@
         <!-- Have a grid layout and a list layout for books -->
         <div id="books"></div>
         <button id="addBook">Add Book</button>
+        <form id="book_info">
+            <section>
+                <h2>Book Info</h2>
+                <ul>
+                    <li>
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title">
+                    </li>
+                    <li>
+                        <label for="author_first">Author First Name</label>
+                        <input type="text" id="author_first" name="author_first">
+                    </li>
+                    <li>
+                        <label for="author_last">Author Last Name</label>
+                        <input type="text" id="author_last" name="author_last">
+                    </li>
+                    <li>
+                        <label for="num_pages"># of Pages</label>
+                        <input type="number" name="num_pages" id="num_pages" min="1">
+                    </li>
+                </ul>
+            </section>
+            <fieldset>
+                <legend>Have you read this book?</legend>
+                <ul>
+                    <li>
+                        <label for="read">Read</label>
+                        <input type="radio" id="read" name="status">
+                    </li>
+                    <li>
+                        <label for="unread">Unread</label>
+                        <input type="radio" id="unread" name="status" checked>
+                    </li>
+                </ul>
+            </fieldset>
+            <button type="button">Add to Library</button>
+        </form>
     </body>
 </html>

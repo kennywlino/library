@@ -60,6 +60,13 @@ function createDivElement(elementType, className, text) {
 function toggleReadStatus() {
 }
 
+function setButtonListeners() {
+    const addBookButton = document.querySelector("#addBook");
+    addBookButton.addEventListener('click', () => {
+        /* set #book_info display to block */
+    });
+    /* add BL for submit button to run addBookToLibrary*/
+}
 
 
 testBook1 = new Book("The Phantom Tollbooth", "Norton", "Juster", 255, true);
