@@ -18,16 +18,16 @@ function Book (title, authorFirst, authorLast, numPages, read) {
     this.info = (`${this.title} by ${this.authorFirst} ${this.authorLast}, ${this.numPages} pages, ${this.readSent}`);
 }
 
-// PSEUDOCODE:
-// 1. construct new Book object with user input
-// containing Book attributes (title, author etc.)
-// 2. add it to myLibrary array
-function addBookToLibrary() {
+// takes in a Book object and pushes onto myLibrary array
+function addBookToLibrary(book) {
+    myLibrary.push(book);
 }
 
-function removeBookFromLibrary() {
+function removeBookFromLibrary(book) {
 }
 
+// iterates over myLibrary array and creates a div per book
+// appends the div to the parent 'books' div
 function displayLibrary() {
     let divBooks = document.getElementById('books');
     for (i = 0; i < myLibrary.length; i++) {
@@ -36,6 +36,7 @@ function displayLibrary() {
     }
 }
 
+// Returns a single div with Book attributes as children
 function createBookDiv(book) {
     let bookDiv = createDivElement('div', "book");
     let titleElem = createDivElement('h2', "title", book.title);
@@ -60,14 +61,40 @@ function createDivElement(elementType, className, text) {
 function toggleReadStatus() {
 }
 
-function setButtonListeners() {
-    const addBookButton = document.querySelector("#addBook");
+// adds an event listener to the "Add Book" button
+// to reveal the book info form
+function showAddBookForm() {
+    const addBookButton = document.querySelector("#add-book");
+    const bookInfoForm = document.querySelector("#book-info");
     addBookButton.addEventListener('click', () => {
-        /* set #book_info display to block */
+        bookInfoForm.style.display = 'block';
     });
-    /* add BL for submit button to run addBookToLibrary*/
 }
 
+// adds an event listener to the "Add To Library" button
+// to process the form and add a new book to the library
+function setUpAddToLibraryListener() {
+    const addToLibButton = document.querySelector("#add-to-library");
+    addToLibButton.addEventListener('click', () => {
+        // validate user input
+        // if user input is good add to library
+        // if not correct input
+        newBook = processBookForm();
+        addBookToLibrary(newBook);
+        // hide the form;
+        displayLibrary();
+    }
+}
+
+// takes user input from book form and returns new Book obj
+function processBookForm() {
+    const bookTitle = document.querySelector("#book_info #book_title");
+    const authorFirst = document.querySelector("#book_info #author_first");
+    const authorLast = document.querySelector("#book_info #author_last");
+    const numPages = document.querySelector("#book_info #num_pages");
+    newBook = new Book(bookTitle.value, authorFirst.value, authorLast.value, numPages.value, true);
+    return newBook;
+}
 
 testBook1 = new Book("The Phantom Tollbooth", "Norton", "Juster", 255, true);
 testBook2 = new Book("Holes", "Louis", "Sachar", 272, true);
@@ -76,3 +103,5 @@ testBook4 = new Book("The Catcher in the Rye", "J.D.", "Salinger", 234, false);
 
 myLibrary.push(testBook1, testBook2, testBook3, testBook4);
 displayLibrary();
+showAddBookForm();
+setUpAddToLibraryListener();

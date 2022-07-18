@@ -10,14 +10,14 @@
         <h1>Library</h1>
         <!-- Have a grid layout and a list layout for books -->
         <div id="books"></div>
-        <button id="addBook">Add Book</button>
-        <form id="book_info">
+        <button type="button" id="add-book">Add Book</button>
+        <form id="book-info">
             <section>
                 <h2>Book Info</h2>
                 <ul>
                     <li>
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="book_title" name="title" required>
                     </li>
                     <li>
                         <label for="author_first">Author First Name</label>
@@ -46,7 +46,7 @@
                     </li>
                 </ul>
             </fieldset>
-            <button type="button">Add to Library</button>
+            <button type="button" id="add-to-library">Add to Library</button>
         </form>
     </body>
 </html>
