@@ -1,3 +1,8 @@
-#book_info {
+#book-info {
     display: none;
+}
+
+#books {
+    display: flex;
+    gap: 25px;
 }

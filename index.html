@@ -17,35 +17,26 @@
                 <ul>
                     <li>
                         <label for="title">Title</label>
-                        <input type="text" id="book_title" name="title" required>
+                        <input type="text" id="book-title" name="title" required>
                     </li>
                     <li>
-                        <label for="author_first">Author First Name</label>
-                        <input type="text" id="author_first" name="author_first">
+                        <label for="author_first">Author: First Name</label>
+                        <input type="text" id="author-first" name="author-first">
                     </li>
                     <li>
-                        <label for="author_last">Author Last Name</label>
-                        <input type="text" id="author_last" name="author_last">
+                        <label for="author_last">Author: Last Name</label>
+                        <input type="text" id="author-last" name="author-last">
                     </li>
                     <li>
                         <label for="num_pages"># of Pages</label>
-                        <input type="number" name="num_pages" id="num_pages" min="1">
+                        <input type="number" id="num-pages" name="num-pages" min="1">
+                    </li>
+                    <li>
+                        <label for="read">Read?</label>
+                        <input type="checkbox" id="read" name="status">
                     </li>
                 </ul>
             </section>
-            <fieldset>
-                <legend>Have you read this book?</legend>
-                <ul>
-                    <li>
-                        <label for="read">Read</label>
-                        <input type="radio" id="read" name="status">
-                    </li>
-                    <li>
-                        <label for="unread">Unread</label>
-                        <input type="radio" id="unread" name="status" checked>
-                    </li>
-                </ul>
-            </fieldset>
             <button type="button" id="add-to-library">Add to Library</button>
         </form>
     </body>
